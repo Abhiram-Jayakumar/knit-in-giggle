@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knit.ingiggle - Magical Handcrafted Knitted Products</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap');
+
+        :root {
+            --primary-color: #9B59B6;
+            --secondary-color: #E91E63;
+            --accent-color: #FFB6C1;
+            --fairy-pink: #FFE4E6;
+            --fairy-blue: #E6F3FF;
+            --fairy-purple: #F3E5F5;
+            --text-dark: #2C3E50;
+            --text-light: #7F8C8D;
+            --sparkle-gold: #FFD700;
+            --magical-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Comfortaa', cursive;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background: linear-gradient(45deg, var(--fairy-pink), var(--fairy-blue), var(--fairy-purple));
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .navbar {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 4px 30px rgba(155, 89, 182, 0.2);
+            transition: all 0.3s ease;
+            border-bottom: 2px solid var(--accent-color);
+        }
+
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 4px 40px rgba(155, 89, 182, 0.3);
+        }
+
+        .navbar-brand {
+            font-family: 'Dancing Script', cursive;
+            font-weight: 700;
+            font-size: 2.2rem;
+            background: var(--magical-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+            border-radius: 50%;
+            background: var(--magical-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            animation: sparkle 2s ease-in-out infinite;
+        }
+
+        @keyframes sparkle {
+
+            0%,
+            100% {
+                transform: scale(1) rotate(0deg);
+            }
+
+            50% {
+                transform: scale(1.1) rotate(180deg);
+            }
+        }
+
+        .nav-link {
+            color: var(--text-dark) !important;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+            transform: translateY(-2px);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background: var(--magical-gradient);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, rgba(255, 182, 193, 0.8), rgba(230, 243, 255, 0.8));
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            z-index: 2;
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        .hero-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4rem;
+            font-weight: 700;
+            background: var(--magical-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            animation: slideInLeft 1s ease-out;
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            color: var(--text-dark);
+            margin-bottom: 2rem;
+            animation: slideInRight 1s ease-out 0.2s both;
+        }
+
+        .hero-image {
+            position: relative;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .hero-img-placeholder {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(45deg, var(--fairy-pink), var(--accent-color));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8rem;
+            color: var(--primary-color);
+            box-shadow: 0 20px 40px rgba(155, 89, 182, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-img-placeholder::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(45deg,
+                    transparent,
+                    transparent 10px,
+                    rgba(255, 255, 255, 0.1) 10px,
+                    rgba(255, 255, 255, 0.1) 20px);
+            animation: shimmer 3s linear infinite;
+        }
+
+        @keyframes shimmer {
+            0% {
+                transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
+        .btn-fairy {
+            background: var(--magical-gradient);
+            border: none;
+            padding: 15px 40px;
+            font-weight: 600;
+            border-radius: 50px;
+            color: white;
+            transition: all 0.3s ease;
+            text-transform: capitalize;
+            letter-spacing: 1px;
+            font-family: 'Comfortaa', cursive;
+            box-shadow: 0 8px 25px rgba(155, 89, 182, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-fairy::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn-fairy:hover::before {
+            left: 100%;
+        }
+
+        .btn-fairy:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(155, 89, 182, 0.5);
+        }
+
+        .magical-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .particle {
+            position: absolute;
+            color: var(--sparkle-gold);
+            font-size: 1rem;
+            animation: floatParticle 8s ease-in-out infinite;
+            opacity: 0.7;
+        }
+
+        .particle:nth-child(1) {
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .particle:nth-child(2) {
+            top: 20%;
+            right: 15%;
+            animation-delay: 2s;
+        }
+
+        .particle:nth-child(3) {
+            bottom: 30%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+
+        .particle:nth-child(4) {
+            top: 60%;
+            right: 30%;
+            animation-delay: 6s;
+        }
+
+        .particle:nth-child(5) {
+            bottom: 20%;
+            right: 10%;
+            animation-delay: 1s;
+        }
+
+        @keyframes floatParticle {
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg) scale(1);
+                opacity: 0.7;
+            }
+
+            25% {
+                transform: translateY(-30px) rotate(90deg) scale(1.2);
+                opacity: 1;
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(180deg) scale(0.8);
+                opacity: 0.5;
+            }
+
+            75% {
+                transform: translateY(-35px) rotate(270deg) scale(1.1);
+                opacity: 0.8;
+            }
+        }
+
+        .section-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            font-weight: 700;
+            background: var(--magical-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '✨';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2rem;
+            animation: sparkle 2s ease-in-out infinite;
+        }
+
+        .carousel-container {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 15px 35px rgba(155, 89, 182, 0.2);
+            margin-bottom: 4rem;
+        }
+
+        .carousel-item img {
+            height: 400px;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+
+        .carousel-placeholder {
+            height: 400px;
+            background: linear-gradient(45deg, var(--fairy-pink), var(--fairy-blue));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6rem;
+            color: var(--primary-color);
+        }
+
+        .product-card {
+            border: none;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 10px 30px rgba(155, 89, 182, 0.2);
+            transition: all 0.4s ease;
+            margin-bottom: 2rem;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--magical-gradient);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .product-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(155, 89, 182, 0.3);
+        }
+
+        .product-image {
+            height: 250px;
+            background: linear-gradient(45deg, var(--fairy-pink), var(--fairy-purple));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--primary-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image::after {
+            content: '✨';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 1.5rem;
+            color: var(--sparkle-gold);
+            animation: twinkle 1.5s ease-in-out infinite;
+        }
+
+        @keyframes twinkle {
+
+            0%,
+            100% {
+                opacity: 0.7;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.2);
+            }
+        }
+
+        .feature-icon {
+            width: 100px;
+            height: 100px;
+            background: var(--magical-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.5rem;
+            margin: 0 auto 1.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            box-shadow: 0 10px 25px rgba(155, 89, 182, 0.3);
+        }
+
+        .feature-icon::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border-radius: 50%;
+            background: var(--magical-gradient);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .feature-icon:hover::before {
+            opacity: 0.5;
+        }
+
+        .feature-icon:hover {
+            transform: scale(1.15) rotate(10deg);
+        }
+
+        .footer {
+            background: linear-gradient(135deg, var(--text-dark), #34495e);
+            color: white;
+            padding: 4rem 0 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--magical-gradient);
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 1.8rem;
+            margin: 0 15px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .social-icons a:hover {
+            color: var(--accent-color);
+            transform: translateY(-5px) scale(1.2);
+        }
+
+        .newsletter-form {
+            background: var(--magical-gradient);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .newsletter-form::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="stars" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.3)"/></pattern></defs><rect width="100" height="100" fill="url(%23stars)"/></svg>');
+            animation: twinkleBackground 4s ease-in-out infinite;
+        }
+
+        @keyframes twinkleBackground {
+
+            0%,
+            100% {
+                opacity: 0.3;
+            }
+
+            50% {
+                opacity: 0.6;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(155, 89, 182, 0.2);
+            margin: 1rem 0;
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            font-size: 4rem;
+            color: var(--accent-color);
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-family: Georgia, serif;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.8rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="#heroContent">
+                <div class="logo-img">
+                    <img src="./images/logo.jpg" alt="Knit.ingiggle Logo" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;">
+                </div>
+                knit.ingiggle
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#heroContent">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#featured">Featured</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#products">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#testimonials">Reviews</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#cart">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="badge bg-danger ms-1" id="cartCount">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <br><br><br>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="magical-particles">
+            <div class="particle"><i class="fas fa-star"></i></div>
+            <div class="particle"><i class="fas fa-sparkles"></i></div>
+            <div class="particle"><i class="fas fa-heart"></i></div>
+            <div class="particle"><i class="fas fa-magic"></i></div>
+            <div class="particle"><i class="fas fa-gem"></i></div>
+        </div>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="hero-content" id="heroContent">
+                        <div><span>
+                                <h1 style="color: #f9c0c900;">hi</h1>
+                            </span></div>
+                        <h1 class="hero-title" id="magic">Magical Knits Await ✨</h1>
+                        <p class="hero-subtitle">Discover our enchanting collection of handcrafted knitted treasures,
+                            woven with love and sprinkled with fairy dust.</p>
+                        <a href="#products" class="btn btn-fairy btn-lg">Begin Your Journey</a>
+                    </div>
+                    <div><span>
+                            <h1 style="color: #f9c0c900;">hi</h1>
+                        </span></div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="hero-image">
+                        <div class="hero-img-placeholder">
+                            <img src="./images/logo.jpg" alt="Knit.ingiggle Logo" class="img-fluid" style="border-radius: 15px; width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Carousel Section -->
+    <section id="featured" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Enchanted Collection</h2>
+            <div class="carousel-container">
+                <div id="featuredCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="0"
+                            class="active"></button>
+                        <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="1"></button>
+                        <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="2"></button>
+                        <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="3"></button>
+                        <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="4"></button>
+                        <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="5"></button>
+                        <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="6"></button>
+                        <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="7"></button>
+                        <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="8"></button>
+                        <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="9"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="carousel-placeholder">
+                              <img src="./images/img1.jpg" alt="" class="featured-img" style="cursor:pointer;">
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="carousel-placeholder">
+                              <img src="./images/img2.jpg" alt="" class="featured-img" style="cursor:pointer;">
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="carousel-placeholder">
+                              <img src="./images/img3.jpg" alt="" class="featured-img" style="cursor:pointer;">
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="carousel-placeholder">
+                              <img src="./images/img4.jpg" alt="" class="featured-img" style="cursor:pointer;">
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="carousel-placeholder">
+                              <img src="./images/img5.jpg" alt="" class="featured-img" style="cursor:pointer;">
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="carousel-placeholder">
+                              <img src="./images/img6.jpg" alt="" class="featured-img" style="cursor:pointer;">
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="carousel-placeholder">
+                              <img src="./images/img7.jpg" alt="" class="featured-img" style="cursor:pointer;">
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="carousel-placeholder">
+                              <img src="./images/img8.jpg" alt="" class="featured-img" style="cursor:pointer;">
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="carousel-placeholder">
+                              <img src="./images/img9.jpg" alt="" class="featured-img" style="cursor:pointer;">
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="carousel-placeholder">
+                              <img src="./images/img10.jpg" alt="" class="featured-img" style="cursor:pointer;">
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#featuredCarousel"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#featuredCarousel"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fullscreen Image Modal -->
+    <div class="modal fade" id="fullscreenImgModal" tabindex="-1" aria-labelledby="fullscreenImgModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-fullscreen">
+        <div class="modal-content" style="background:rgba(0,0,0,0.85);border:none;">
+          <div class="modal-header border-0" style="z-index:2;">
+            <button type="button" class="btn-close btn-close-white ms-auto" data-bs-dismiss="modal" aria-label="Close" style="font-size:2rem;"></button>
+          </div>
+          <div class="modal-body d-flex justify-content-center align-items-center p-0" style="height:100%;">
+            <img id="fullscreenImg" src="" alt="Full Image" class="img-fluid" style="max-height:90vh;max-width:100%;border-radius:20px;box-shadow:0 0 40px #fff3;">
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('.featured-img').forEach(function (img) {
+          img.addEventListener('click', function () {
+            document.getElementById('fullscreenImg').src = this.src;
+            var modal = new bootstrap.Modal(document.getElementById('fullscreenImgModal'));
+            modal.show();
+          });
+        });
+      });
+    </script>
+
+    <!-- Products Section -->
+    <section id="products" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Magical Products</h2>
+            <div class="row" id="productGrid">
+                <!-- Products will be dynamically loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Carousel -->
+    <section id="testimonials" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Fairy Tale Reviews</h2>
+            <div id="testimonialsCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="testimonial-card text-center">
+                            <p class="lead">"The most magical knitted scarf I've ever owned! It feels like wearing a
+                                warm hug from a fairy godmother."</p>
+                            <div class="mt-3">
+                                <h6>⭐⭐⭐⭐⭐</h6>
+                                <small class="text-muted">- Cinderella, Happy Customer</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="testimonial-card text-center">
+                            <p class="lead">"My baby loves the enchanted blanket! It's so soft and the quality is
+                                absolutely wonderful."</p>
+                            <div class="mt-3">
+                                <h6>⭐⭐⭐⭐⭐</h6>
+                                <small class="text-muted">- Belle, New Mom</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="testimonial-card text-center">
+                            <p class="lead">"Fast shipping and beautiful packaging! Each item truly feels like a
+                                treasure from a magical kingdom."</p>
+                            <div class="mt-3">
+                                <h6>⭐⭐⭐⭐⭐</h6>
+                                <small class="text-muted">- Aurora, Delighted Shopper</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#testimonialsCarousel"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#testimonialsCarousel"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Why Choose Our Magic?</h2>
+            <div class="row">
+                <div class="col-md-4 text-center mb-4">
+                    <div class="feature-icon">
+                        <i class="fas fa-magic"></i>
+                    </div>
+                    <h4>Enchanted Craftsmanship</h4>
+                    <p class="text-muted">Each piece is lovingly handcrafted with magical attention to detail by skilled
+                        fairy artisans.</p>
+                </div>
+                <div class="col-md-4 text-center mb-4">
+                    <div class="feature-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h4>Sustainable Fairy Dust</h4>
+                    <p class="text-muted">We use only the finest eco-friendly materials, blessed by nature spirits and
+                        forest fairies.</p>
+                </div>
+                <div class="col-md-4 text-center mb-4">
+                    <div class="feature-icon">
+                        <i class="fas fa-dove"></i>
+                    </div>
+                    <h4>Swift Fairy Delivery</h4>
+                    <p class="text-muted">Our magical delivery sprites ensure your treasures arrive quickly and safely
+                        at your castle.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="newsletter-form text-center text-white position-relative">
+                        <h3 style="font-family: 'Dancing Script', cursive; font-size: 2.5rem;">Join Our Magical Kingdom
+                        </h3>
+                        <p>Subscribe to receive enchanting updates and exclusive fairy tale offers!</p>
+                        <div class="row justify-content-center">
+                            <div class="col-md-8">
+                                <div class="input-group">
+                                    <input type="email" class="form-control" placeholder="Enter your magical email"
+                                        id="emailInput" style="border-radius: 25px 0 0 25px;">
+                                    <button class="btn btn-light" type="button" onclick="subscribeNewsletter()"
+                                        style="border-radius: 0 25px 25px 0; font-weight: 600;">Cast Spell ✨</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5 style="font-family: 'Dancing Script', cursive; font-size: 1.8rem; color: var(--accent-color);">
+                        knit.ingiggle ✨</h5>
+                    <p>Weaving magical knitted dreams and fairy tale treasures since our kingdom was founded in 2024.
+                    </p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h5 style="color: var(--accent-color);">Magical Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#home" class="text-white-50">🏰 Home</a></li>
+                        <li><a href="#featured" class="text-white-50">✨ Featured</a></li>
+                        <li><a href="#products" class="text-white-50">🧶 Products</a></li>
+                        <li><a href="#about" class="text-white-50">🦋 About Us</a></li>
+                        <li><a href="#contact" class="text-white-50">💌 Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5 style="color: var(--accent-color);">Enchanted Contact</h5>
+                    <p><i class="fas fa-envelope"></i> fairy@knit.ingiggle.com</p>
+                    <p><i class="fas fa-phone"></i> +1 (555) FAIRY-ME</p>
+                    <p><i class="fas fa-castle"></i> 123 Enchanted Lane, Fairy Kingdom</p>
+                </div>
+            </div>
+            <hr class="my-4" style="border-color: var(--accent-color);">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>&copy; 2024 knit.ingiggle. All magical rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-end">
+                    <p>Made with <i class="fas fa-heart text-danger"></i> and ✨ by fairy hands</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Magical product data with fairy theme
+        const products = [
+            {
+                id: 1,
+                name: "Enchanted Winter Scarf",
+                price: "$45.00",
+                icon: "fas fa-snowflake",
+                description: "A magical scarf that keeps you warm like fairy wings"
+            },
+            {
+                id: 2,
+                name: "Pixie Dust Mittens",
+                price: "$25.00",
+                icon: "fas fa-mitten",
+                description: "Hand-knitted mittens sprinkled with fairy magic"
+            },
+            {
+                id: 3,
+                name: "Angel Baby Blanket",
+                price: "$65.00",
+                icon: "fas fa-baby",
+                description: "Cloud-soft blanket blessed by guardian angels"
+            },
+            {
+                id: 4,
+                name: "Fairy Tale Beanie",
+                price: "$30.00",
+                icon: "fas fa-hat-wizard",
+                description: "Magical beanie that grants cozy wishes"
+            },
+            {
+                id: 5,
+                name: "Dreamy Castle Pillow",
+                price: "$35.00",
+                icon: "fas fa-moon",
+                description: "Enchanted pillow for magical dreams"
+            },
+            {
+                id: 6,
+                name: "Unicorn Wool Socks",
+                price: "$20.00",
+                icon: "fas fa-rainbow",
+                description: "Mystical socks woven from unicorn wool"
+            }
+        ];
+
+        // Cart functionality with fairy magic
+        let cart = [];
+
+        // Initialize the magical page
+        document.addEventListener('DOMContentLoaded', function () {
+            loadMagicalProducts();
+            initializeScrollEffects();
+            initializeSmoothScrolling();
+            addMagicalEffects();
+        });
+
+        // Load products with fairy magic
+        function loadMagicalProducts() {
+            const productGrid = document.getElementById('productGrid');
+            productGrid.innerHTML = '';
+
+            products.forEach((product, index) => {
+                const productCard = `
+                    <div class="col-lg-4 col-md-6 mb-4" style="animation: fadeInUp 0.6s ease-out ${index * 0.1}s both;">
+                        <div class="card product-card h-100">
+                            <div class="product-image">
+                                <i class="${product.icon}"></i>
+                            </div>
+                            <div class="card-body text-center">
+                                <h5 class="card-title" style="color: var(--primary-color); font-weight: 600;">${product.name}</h5>
+                                <p class="card-text text-muted">${product.description}</p>
+                                <p class="h4" style="background: var(--magical-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 700;">${product.price}</p>
+                                <button class="btn btn-fairy" onclick="addToMagicalCart(${product.id})">
+                                    <i class="fas fa-magic"></i> Add to Cart ✨
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                productGrid.innerHTML += productCard;
+            });
+        }
+
+        // Add to cart with magical effects
+        function addToMagicalCart(productId) {
+            const product = products.find(p => p.id === productId);
+            if (product) {
+                cart.push(product);
+                updateCartCount();
+                showMagicalNotification(`${product.name} added to your magical cart! ✨`);
+                createSparkleEffect();
+            }
+        }
+
+        // Update cart count with fairy magic
+        function updateCartCount() {
+            const cartBadge = document.getElementById('cartCount');
+            cartBadge.textContent = cart.length;
+            cartBadge.style.animation = 'sparkle 0.5s ease-in-out';
+            setTimeout(() => {
+                cartBadge.style.animation = '';
+            }, 500);
+        }
+
+        // Show magical notification
+        function showMagicalNotification(message) {
+            const notification = document.createElement('div');
+            notification.className = 'alert position-fixed';
+            notification.style.cssText = `
+                top: 100px;
+                right: 20px;
+                z-index: 9999;
+                min-width: 350px;
+                background: var(--magical-gradient);
+                color: white;
+                border: none;
+                border-radius: 20px;
+                box-shadow: 0 10px 30px rgba(155, 89, 182, 0.4);
+                animation: slideInRight 0.5s ease-out;
+                font-family: 'Comfortaa', cursive;
+            `;
+            notification.innerHTML = `
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-magic me-2"></i> ${message}
+                    <button type="button" class="btn-close btn-close-white ms-auto" onclick="this.parentElement.parentElement.remove()"></button>
+                </div>
+            `;
+
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                if (notification.parentElement) {
+                    notification.style.animation = 'fadeOut 0.5s ease-in-out';
+                    setTimeout(() => notification.remove(), 500);
+                }
+            }, 3000);
+        }
+
+        // Create sparkle effect
+        function createSparkleEffect() {
+            for (let i = 0; i < 10; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.innerHTML = '✨';
+                sparkle.style.cssText = `
+                    position: fixed;
+                    top: ${Math.random() * window.innerHeight}px;
+                    left: ${Math.random() * window.innerWidth}px;
+                    font-size: ${Math.random() * 20 + 15}px;
+                    pointer-events: none;
+                    z-index: 9999;
+                    animation: sparkleEffect 2s ease-out forwards;
+                `;
+
+                document.body.appendChild(sparkle);
+
+                setTimeout(() => sparkle.remove(), 2000);
+            }
+        }
+
+        // Newsletter subscription with fairy magic
+        function subscribeNewsletter() {
+            const email = document.getElementById('emailInput').value;
+            if (email && email.includes('@')) {
+                showMagicalNotification('Welcome to our magical kingdom! ✨🧚‍♀️');
+                document.getElementById('emailInput').value = '';
+                createSparkleEffect();
+            } else {
+                showMagicalNotification('Please enter a valid magical email address! 📮✨');
+            }
+        }
+
+        // Enhanced scroll effects
+        function initializeScrollEffects() {
+            const navbar = document.getElementById('mainNav');
+
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 100) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+
+                // Parallax effect for hero section
+                const hero = document.querySelector('.hero-section');
+                const scrolled = window.pageYOffset;
+                const rate = scrolled * -0.5;
+                hero.style.transform = `translateY(${rate}px)`;
+            });
+        }
+
+        // Smooth scrolling with magic
+        function initializeSmoothScrolling() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        }
+
+        // Add magical effects
+        function addMagicalEffects() {
+            // Add CSS for additional magical animations
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes sparkleEffect {
+                    0% { 
+                        opacity: 1; 
+                        transform: translateY(0) scale(0); 
+                    }
+                    50% { 
+                        opacity: 1; 
+                        transform: translateY(-100px) scale(1.2) rotate(180deg); 
+                    }
+                    100% { 
+                        opacity: 0; 
+                        transform: translateY(-200px) scale(0) rotate(360deg); 
+                    }
+                }
+                
+                @keyframes fadeOut {
+                    from { opacity: 1; }
+                    to { opacity: 0; }
+                }
+                
+                .magical-cursor {
+                    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><text y="16" font-size="16">✨</text></svg>'), auto;
+                }
+            `;
+            document.head.appendChild(style);
+
+            // Add magical cursor to interactive elements
+            document.querySelectorAll('.btn-fairy, .product-card, .feature-icon').forEach(el => {
+                el.classList.add('magical-cursor');
+            });
+
+            // Random floating particles
+            setInterval(() => {
+                if (Math.random() > 0.7) {
+                    createFloatingParticle();
+                }
+            }, 3000);
+        }
+
+        // Create floating particles
+        function createFloatingParticle() {
+            const particles = ['✨', '🌟', '💫', '⭐', '🦋', '🌸'];
+            const particle = document.createElement('div');
+            particle.innerHTML = particles[Math.floor(Math.random() * particles.length)];
+            particle.style.cssText = `
+                position: fixed;
+                top: 100vh;
+                left: ${Math.random() * 100}vw;
+                font-size: ${Math.random() * 15 + 10}px;
+                pointer-events: none;
+                z-index: 1;
+                animation: floatUp 8s linear forwards;
+                opacity: 0.7;
+            `;
+
+            document.body.appendChild(particle);
+
+            setTimeout(() => particle.remove(), 8000);
+        }
+
+        // Add float up animation
+        const floatUpStyle = document.createElement('style');
+        floatUpStyle.textContent = `
+            @keyframes floatUp {
+                0% { 
+                    transform: translateY(0) rotate(0deg); 
+                    opacity: 0.7;
+                }
+                50% { 
+                    opacity: 1;
+                }
+                100% { 
+                    transform: translateY(-100vh) rotate(360deg); 
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(floatUpStyle);
+
+        // Initialize carousel auto-advance
+        document.addEventListener('DOMContentLoaded', function () {
+            const carousels = document.querySelectorAll('.carousel');
+            carousels.forEach(carousel => {
+                new bootstrap.Carousel(carousel, {
+                    interval: 4000,
+                    ride: 'carousel'
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
